@@ -1,0 +1,49 @@
+
+* {
+    font-family: Inter,sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* CALCULATOR */
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.first-row, .second-row, .third-row, .fourth-row {
+    display: flex;
+    align-items: center;
+}
+
+
+.calculator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.number, .operator {
+    padding: 50px;
+}
+
+/* FOOTER */
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+}
+
+.github {
+    margin-left: 5px;
+}
