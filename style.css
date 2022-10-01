@@ -9,7 +9,7 @@ body {
     justify-content: center;
     flex-direction: column;
 }
-
+ß
 /* CALCULATOR */
 .buttons {
     display: flex;
@@ -30,7 +30,7 @@ body {
     justify-content: center;
     flex-direction: column;
 }
-.number, .operator {
+.number, .operator, .clear {
     padding: 50px;
 }
 
