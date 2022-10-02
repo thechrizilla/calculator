@@ -30,24 +30,32 @@ clearButton.addEventListener('click', clearScreen);
 
 // function to append number and display operand
 function appendNumber(number) {
+    // first operand
     if (operator === "") {
         if (clearResults) results.textContent = "";
         firstoperand = "";
         results.textContent += number.target.textContent;
         firstoperand += number.target.textContent;
         clearResults = false;
+
+    // second operand
     } else {
         results.textContent += number.target.textContent;
         secondoperand += number.target.textContent;
     }
 }
 
-// function to append number and display operator
+// function to  append number and display operator
 function appendOperator(symbol) {
+    // adding operator
     if(operator === "") {
-        results.textContent += symbol.target.textContent;
-        operator = symbol.target.textContent;
-
+        if(symbol.target.textContent === "=") {
+            return;
+        } else {
+            results.textContent += symbol.target.textContent;
+            operator = symbol.target.textContent;
+        }
+    // if user clicks on "="
     } else if (symbol.target.textContent === "=") {
         answer = operate(operator, Number(firstoperand), Number(secondoperand));
         results.textContent = answer;
@@ -55,6 +63,7 @@ function appendOperator(symbol) {
         secondoperand = "";
         operator = "";
         clearResults = true;
+    // if user continues with the previous answer
     } else {
         answer = operate(operator, Number(firstoperand), Number(secondoperand));
         results.textContent = answer;
