@@ -32,6 +32,7 @@ clearButton.addEventListener('click', clearScreen);
 function appendNumber(number) {
     if (operator === "") {
         if (clearResults) results.textContent = "";
+        firstoperand = "";
         results.textContent += number.target.textContent;
         firstoperand += number.target.textContent;
         clearResults = false;
