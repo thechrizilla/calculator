@@ -33,11 +33,9 @@ function appendNumber(number) {
     // first operand
     if (operator === "") {
         if (clearResults) results.textContent = "";
-        firstoperand = "";
         results.textContent += number.target.textContent;
         firstoperand += number.target.textContent;
         clearResults = false;
-
     // second operand
     } else {
         results.textContent += number.target.textContent;
@@ -58,21 +56,30 @@ function appendOperator(symbol) {
     // if user clicks on "="
     } else if (symbol.target.textContent === "=") {
         answer = operate(operator, Number(firstoperand), Number(secondoperand));
-        results.textContent = answer;
-        firstoperand = answer;
-        secondoperand = "";
-        operator = "";
-        clearResults = true;
+        console.log(answer);
+        if (answer === Infinity) {
+            results.textContent = "ERROR, CANNOT DIVIDE BY 0!"
+        } else {
+            results.textContent = answer;
+            firstoperand = answer;
+            secondoperand = "";
+            operator = "";
+            clearResults = true;
+        }
     // if user continues with the previous answer
     } else {
         answer = operate(operator, Number(firstoperand), Number(secondoperand));
-        results.textContent = answer;
-        firstoperand = answer;
-        secondoperand = "";
-        operator = symbol.target.textContent;
-        if (symbol.target.textContent != "=") {
-            results.textContent += symbol.target.textContent;
-        }    
+        if (answer === Infinity) {
+            results.textContent = "ERROR, CANNOT DIVIDE BY 0!"
+        } else {
+            results.textContent = answer;
+            firstoperand = answer;
+            secondoperand = "";
+            operator = symbol.target.textContent;
+            if (symbol.target.textContent != "=") {
+                results.textContent += symbol.target.textContent;
+            }    
+        }
     } 
 }
 
